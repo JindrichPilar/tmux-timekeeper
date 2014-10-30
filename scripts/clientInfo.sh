@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 clients_format="\
 #{client_activity}:\
 #{client_session}:\

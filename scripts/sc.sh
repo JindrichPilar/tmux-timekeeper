@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 FORMAT="\
 #{session_attached}:\
 #{window_active}:\
