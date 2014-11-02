@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-
+DELAY=1;
 DIR="$HOME/timekeeper";
 OUTPUT_DIR="$HOME/TTK/";
 

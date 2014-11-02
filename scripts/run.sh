@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-DELAY=1;
-OUTPUT_FILE="$HOME/asd.log"
-
 
 
 record() {
@@ -18,7 +15,7 @@ echo "record";
     fi
 
 
-    echo "`getActivePane`" >> "$OUTPUT_FILE"
+    saveLog "`getActivePane`" "$DELAY"
 
   done
 }
@@ -45,4 +42,3 @@ startRecording() {
   record &
   echo "started";
 }
-
