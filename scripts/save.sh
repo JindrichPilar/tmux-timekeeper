@@ -11,7 +11,46 @@
 #window_name (dir per each window in session)
 #current_path (dir per each pane in window)
 #current_command, pane_title (dirs for kinds of logs)      BEWARE: current_command and pane_title are redundant the time is stored duplicatly
+#command/title (dir for each unique thing acording to its kind)
 #time_spent.log (file per kind with)
 
 
+#$1 = data
+getSaveCommandPath() {
+	echo "$OUTPUT_DIR/`getSessionName "$1"`/`getWindowName "$1"`/`getCurrentPath "$1"`/current_command/`getCurrentCommand "$1"`/";
+}
 
+#1 = data
+getSavePaneTitlePath() {
+	echo "$OUTPUT_DIR/`getSessionName "$1"`/`getWindowName "$1"`/`getCurrentPath "$1"`/pane_title/`getPaneTitle "$1"`/";
+}
+
+
+#1 = data
+#2 = time to add
+saveLog() {
+	cmdPath=`getSaveCommandPath "$1"`
+	mkdir -p "$cmdPath"
+	saveToFile "$cmdPath" "$2"
+
+
+	titlePath=`getSavePaneTitlePath "$1"`
+	mkdir -p "$titlePath"
+	saveToFile "$titlePath" "$2"
+}
+
+
+#1 = folder
+#2 = time to add
+saveToFile() {
+
+	if [ ! -f "$1/time_spent.log" ]; then
+		echo "$2" > "$1/time_spent.log";
+		return 0;
+	fi
+
+
+	alreadySpent=`cat "$1/time_spent.log"`;
+	count=$((alreadySpent + $2))
+	echo "$count" > "$1/time_spent.log";
+}
