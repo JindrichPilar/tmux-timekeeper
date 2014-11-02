@@ -17,12 +17,12 @@
 
 #$1 = data
 getSaveCommandPath() {
-	echo "$OUTPUT_DIR/`getSessionName "$1"`/`getWindowName "$1"`/`getCurrentPath "$1"`/current_command/`getCurrentCommand "$1"`/";
+	echo "$OUTPUT_DIR/session_name/`getSessionName "$1"`/window_name/`getWindowName "$1"`/current_path/`getCurrentPath "$1"`/current_command/`getCurrentCommand "$1"`/";
 }
 
 #1 = data
 getSavePaneTitlePath() {
-	echo "$OUTPUT_DIR/`getSessionName "$1"`/`getWindowName "$1"`/`getCurrentPath "$1"`/pane_title/`getPaneTitle "$1"`/";
+	echo "$OUTPUT_DIR/session_name/`getSessionName "$1"`/window_name/`getWindowName "$1"`/current_path/`getCurrentPath "$1"`/pane_title/`getPaneTitle "$1"`/";
 }
 
 
