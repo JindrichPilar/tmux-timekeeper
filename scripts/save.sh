@@ -43,14 +43,15 @@ saveLog() {
 #1 = folder
 #2 = time to add
 saveToFile() {
+	logFile="$1/time_spent.log";
 
-	if [ ! -f "$1/time_spent.log" ]; then
-		echo "$2" > "$1/time_spent.log";
+	if [ ! -f "$logFile" ]; then
+		echo "$2" > "$logFile";
 		return 0;
 	fi
 
 
-	alreadySpent=`cat "$1/time_spent.log"`;
+	alreadySpent=`cat "$logFile"`;
 	count=$((alreadySpent + $2))
-	echo "$count" > "$1/time_spent.log";
+	echo "$count" > "$logFile";
 }
