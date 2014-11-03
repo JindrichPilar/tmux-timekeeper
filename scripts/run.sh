@@ -15,7 +15,13 @@ echo "record";
     fi
 
 
-    saveLog "`getActivePane`" "$DELAY"
+    activePaneStr=`getActivePane`
+    strC=`echo "$activePaneStr" | wc -l`
+    if [ $strC -eq 0 ]; then
+      return 2
+    fi
+
+    saveLog "$activePaneStr" "$DELAY"
 
   done
 }
