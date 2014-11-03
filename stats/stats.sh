@@ -8,7 +8,7 @@
 
 
 #Get sessions with time spent
-statsSession() {
+statsSessions() {
 
 	IFS='
 	'
@@ -31,37 +31,53 @@ statsSession() {
 
 #Get windows in session with time spent
 #1 = session_name
-
+statsSession() {
+	echo "Not yet implemented";
+}
 
 
 #Get paths in session with time spent
 #1 = session_name
-
+statsSessionPaths() {
+	echo "Not yet implemented";
+}
 
 
 #Get commands in session with time spent
 #1 = session_name
-
+statsSessionCommands() {
+	echo "Not yet implemented";
+}
 
 
 #Get paths in window in session with time spent
 #1 = session_name
 #2 = window_name
-
+statsSessionWindow() {
+	echo "Not yet implemented";
+}
 
 
 #Get commands in window in session with time spent
 #1 = session_name
 #2 = window_name
+statsSessionWindowCommands() {
+	echo "Not yet implemented";
+}
 
 
 
 #Get commands with time spent across all sessions and windows
+statsCommands() {
+	echo "Not yet implemented";
+}
 
 
 
 #Get paths with time spent accros all sessions and window
-
+statsPaths() {
+	echo "Not yet implemented";
+}
 
 
 #Helpers
