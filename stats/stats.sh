@@ -50,7 +50,7 @@ statsSession() {
 		msg=`echo "$dir" | rev | cut -d"/" -f1 | rev`
 
 		#TODO add option to print in seconds (for additinal scripts)
-		msg="$msg :"`displaytime $time`
+		msg="$msg:"`displaytime $time`
 		echo $msg
 	done
 }
@@ -76,7 +76,7 @@ statsSessionPaths() {
 		msg=`echo "$dir" | rev | cut -d"/" -f1 | rev`
 
 		#TODO add option to print in seconds (for additinal scripts)
-		msg="$msg :"`displaytime $time`
+		msg="$msg:"`displaytime $time`
 		echo $msg
 	done
 }
@@ -102,7 +102,7 @@ statsSessionCommands() {
 		msg=`echo "$dir" | rev | cut -d"/" -f1 | rev`
 
 		#TODO add option to print in seconds (for additinal scripts)
-		msg="$msg :"`displaytime $time`
+		msg="$msg:"`displaytime $time`
 		echo $msg
 	done
 }
@@ -112,7 +112,12 @@ statsSessionCommands() {
 #1 = session_name
 #2 = window_name
 statsSessionWindow() {
-	echo "Not yet implemented";
+	if [ "$#" -ne 2 ]; then
+		echo "Provide both session and window name as two arguments"
+		return 2;
+	fi
+
+	statsSession "$1" | grep "^$2:*"
 }
 
 
