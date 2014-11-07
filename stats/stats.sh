@@ -125,7 +125,26 @@ statsSessionWindow() {
 #1 = session_name
 #2 = window_name
 statsSessionWindowCommands() {
-	echo "Not yet implemented";
+
+	if [ "$#" -ne 2 ]; then
+		echo "Provide both session and window name as two arguments";
+		return 2;
+	fi
+
+	sessDir="$OUTPUT_DIR/session_name/$1/window_name/$2/current_path"
+	dirs=`find "$sessDir" -type d | grep "$sessDir/.*/current_command/[^/]*"`
+
+	for dir in ${dirs[*]}; do
+
+		#Additional 0 because of last \n
+		time=$(($(cat `find "$dir" -name "*.log"` | tr -s '\n' '+')0))
+
+		msg=`echo "$dir" | rev | cut -d"/" -f1 | rev`
+
+		#TODO add option to print in seconds (for additinal scripts)
+		msg="$msg:"`displaytime $time`
+		echo $msg
+	done
 }
 
 
