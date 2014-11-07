@@ -151,7 +151,20 @@ statsSessionWindowCommands() {
 
 #Get commands with time spent across all sessions and windows
 statsCommands() {
-	echo "Not yet implemented";
+
+	dirs=`find "$OUTPUT_DIR" -type d | grep "$OUTPUT_DIR""session_name/[^/]*/window_name/[^/]*/current_path/.*/current_command/[^/]*"`
+
+	for dir in ${dirs[*]}; do
+
+		#Additional 0 because of last \n
+		time=$(($(cat `find "$dir" -name "*.log"` | tr -s '\n' '+')0))
+
+		msg=`echo "$dir" | rev | cut -d"/" -f1 | rev`
+
+		#TODO add option to print in seconds (for additinal scripts)
+		msg="$msg:"`displaytime $time`
+		echo $msg
+	done
 }
 
 
