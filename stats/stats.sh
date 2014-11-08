@@ -73,12 +73,15 @@ statsSessionPaths() {
 		#Additional 0 because of last \n
 		time=$(($(cat `find "$dir" -name "*.log"` | tr -s '\n' '+')0))
 
-		msg=`echo "$dir" | rev | cut -d"/" -f1 | rev`
+		#TODO entire paths
+		msg=`echo "$dir" | rev | cut -d"/" -f2 | rev`
 
 		#TODO add option to print in seconds (for additinal scripts)
 		msg="$msg:"`displaytime $time`
 		echo $msg
 	done
+
+	#TODO find duplicate paths and sum their time
 }
 
 
@@ -105,6 +108,8 @@ statsSessionCommands() {
 		msg="$msg:"`displaytime $time`
 		echo $msg
 	done
+
+	#TODO find duplicate commands and sum their time
 }
 
 
@@ -132,7 +137,7 @@ statsSessionWindowCommands() {
 	fi
 
 	sessDir="$OUTPUT_DIR/session_name/$1/window_name/$2/current_path"
-	dirs=`find "$sessDir" -type d | grep "$sessDir/.*/current_command/[^/]*"`
+	dirs=`find "$sessDir" -type d | grep "$sessDir/.*/current_command/[^/]*$"`
 
 	for dir in ${dirs[*]}; do
 
@@ -145,6 +150,9 @@ statsSessionWindowCommands() {
 		msg="$msg:"`displaytime $time`
 		echo $msg
 	done
+
+
+	#TODO find duplicate commands and sum their time
 }
 
 
@@ -152,7 +160,7 @@ statsSessionWindowCommands() {
 #Get commands with time spent across all sessions and windows
 statsCommands() {
 
-	dirs=`find "$OUTPUT_DIR" -type d | grep "$OUTPUT_DIR""session_name/[^/]*/window_name/[^/]*/current_path/.*/current_command/[^/]*"`
+	dirs=`find "$OUTPUT_DIR" -type d | grep "$OUTPUT_DIR""session_name/[^/]*/window_name/[^/]*/current_path/.*/current_command/[^/]*$"`
 
 	for dir in ${dirs[*]}; do
 
@@ -165,13 +173,31 @@ statsCommands() {
 		msg="$msg:"`displaytime $time`
 		echo $msg
 	done
+
+	#TODO find duplicate commands and sum their time
 }
 
 
 
 #Get paths with time spent accros all sessions and window
 statsPaths() {
-	echo "Not yet implemented";
+	dirs=`find "$OUTPUT_DIR" -type d | grep "^$OUTPUT_DIR""session_name/[^/]*/window_name/[^/]*/current_path/.*/current_command$"`
+
+	for dir in ${dirs[*]}; do
+
+		#Additional 0 because of last \n
+		time=$(($(cat `find "$dir" -name "*.log"` | tr -s '\n' '+')0))
+
+		#TODO print entire path
+		msg=`echo "$dir" | rev | cut -d"/" -f2 | rev`
+
+		#TODO add option to print in seconds (for additinal scripts)
+		msg="$msg:"`displaytime $time`
+		echo $msg
+	done
+
+
+	#TODO find duplicate paths and sum their time
 }
 
 
