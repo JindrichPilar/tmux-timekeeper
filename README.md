@@ -15,7 +15,7 @@ Simply follow guide in [TPM readme](https://github.com/tmux-plugins/tpm#installi
 
 ### By hand
 * Use git to clone this repository to `~/.timekeeper`.
-* Set configuration variables in ~/.tmux.conf (see [Configuration][])
+* Set configuration variables in ~/.tmux.conf (see **Configuration**)
 * Edit `~/.tmux.conf` by adding following line at the end of file.
 * Reload tmux configuration
 ```
@@ -64,7 +64,7 @@ Short answer is no, it literally measures focus in tmux (in terminal). However y
 Yes, but you have to run tmux on remote host to track things. If you run tmux on localhost all you get is time spent on ssh. Ideally run tmux and TT on both machines.
 
 ### Can I write my own statistics functions?
-Sure you can! Either by further processing output from TT's stats functions, witch would be completely forward compatible and storage agnostic (see [How does TT stores data?][]. Or you can process stored data yourself. Information about how data is stored can be found in scripts/save.sh file.
+Sure you can! Either by further processing output from TT's stats functions, witch would be completely forward compatible and storage agnostic (see **How does TT stores data?**. Or you can process stored data yourself. Information about how data is stored can be found in scripts/save.sh file.
 
 ### Can TT generate reports in PDF/HTML with plots?
 Not yet. But it is planned in future.
