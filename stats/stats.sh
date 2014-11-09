@@ -13,8 +13,8 @@ statsSessions() {
 	IFS='
 	'
 
-	#$OUTPUT_DIR ends with / (TODO delete when loading config)
-	dirs=`find "$OUTPUT_DIR" -type d | grep "$OUTPUT_DIR""session_name/[^/]*$"`
+	#$TTK_LOG_DIR ends with / (TODO delete when loading config)
+	dirs=`find "$TTK_LOG_DIR" -type d | grep "$TTK_LOG_DIR""session_name/[^/]*$"`
 
 	for i in ${dirs[*]}; do
 		#Additional 0 because of last \n
@@ -39,7 +39,7 @@ statsSession() {
 		return 2;
 	fi
 
-	sessDir="$OUTPUT_DIR/session_name/$1/window_name"
+	sessDir="$TTK_LOG_DIR/session_name/$1/window_name"
 	dirs=`find "$sessDir" -type d | grep "$sessDir/[^/]*$"`
 
 	for dir in ${dirs[*]}; do
@@ -65,7 +65,7 @@ statsSessionPaths() {
 		return 2;
 	fi
 
-	sessDir="$OUTPUT_DIR/session_name/$1/window_name"
+	sessDir="$TTK_LOG_DIR/session_name/$1/window_name"
 	dirs=`find "$sessDir" -type d | grep "$sessDir/[^/]*/current_path/[^/]*$"`
 
 	for dir in ${dirs[*]}; do
@@ -94,7 +94,7 @@ statsSessionCommands() {
 		return 2;
 	fi
 
-	sessDir="$OUTPUT_DIR/session_name/$1/window_name"
+	sessDir="$TTK_LOG_DIR/session_name/$1/window_name"
 	dirs=`find "$sessDir" -type d | grep "$sessDir/[^/]*/current_path/.*/current_command/[^/]*$"`
 
 	for dir in ${dirs[*]}; do
@@ -136,7 +136,7 @@ statsSessionWindowCommands() {
 		return 2;
 	fi
 
-	sessDir="$OUTPUT_DIR/session_name/$1/window_name/$2/current_path"
+	sessDir="$TTK_LOG_DIR/session_name/$1/window_name/$2/current_path"
 	dirs=`find "$sessDir" -type d | grep "$sessDir/.*/current_command/[^/]*$"`
 
 	for dir in ${dirs[*]}; do
@@ -160,7 +160,7 @@ statsSessionWindowCommands() {
 #Get commands with time spent across all sessions and windows
 statsCommands() {
 
-	dirs=`find "$OUTPUT_DIR" -type d | grep "$OUTPUT_DIR""session_name/[^/]*/window_name/[^/]*/current_path/.*/current_command/[^/]*$"`
+	dirs=`find "$TTK_LOG_DIR" -type d | grep "$TTK_LOG_DIR""session_name/[^/]*/window_name/[^/]*/current_path/.*/current_command/[^/]*$"`
 
 	for dir in ${dirs[*]}; do
 
@@ -181,7 +181,7 @@ statsCommands() {
 
 #Get paths with time spent accros all sessions and window
 statsPaths() {
-	dirs=`find "$OUTPUT_DIR" -type d | grep "^$OUTPUT_DIR""session_name/[^/]*/window_name/[^/]*/current_path/.*/current_command$"`
+	dirs=`find "$TTK_LOG_DIR" -type d | grep "^$TTK_LOG_DIR""session_name/[^/]*/window_name/[^/]*/current_path/.*/current_command$"`
 
 	for dir in ${dirs[*]}; do
 

@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
-DELAY=1;
-DIR="$HOME/.timekeeper";
-OUTPUT_DIR="$HOME/TTK/";
+
+TTK_LOG_DELAY=5;
+TTK_WRITE_DELAY=5;
+TTK_PLUGIN_DIR="$HOME/.timekeeper";
+TTK_LOG_DIR="$HOME/TTK/";
 
 
-source "$DIR/scripts/parser.sh";
-source "$DIR/scripts/save.sh";
-source "$DIR/scripts/run.sh";
-source "$DIR/stats/stats.sh";
+source "$TTK_PLUGIN_DIR/scripts/parser.sh";
+source "$TTK_PLUGIN_DIR/scripts/save.sh";
+source "$TTK_PLUGIN_DIR/scripts/run.sh";
+source "$TTK_PLUGIN_DIR/stats/stats.sh";

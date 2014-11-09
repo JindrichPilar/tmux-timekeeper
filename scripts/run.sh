@@ -7,7 +7,7 @@ echo "record";
   while true;
   do
 
-    sleep "$DELAY";
+    sleep "$TTK_LOG_DELAY";
 
     isEndOfRecording
     if [ $? -eq 0 ];
