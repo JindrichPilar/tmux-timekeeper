@@ -14,7 +14,7 @@ statsSessions() {
 	'
 
 	#$TTK_LOG_DIR ends with / (TODO delete when loading config)
-	dirs=`find "$TTK_LOG_DIR" -type d | grep "$TTK_LOG_DIR""session_name/[^/]*$"`
+	dirs=`find "$TTK_LOG_DIR" -type d | grep "^$TTK_LOG_DIR""session_name/[^/]*$"`
 
 	for i in ${dirs[*]}; do
 		#Additional 0 because of last \n
@@ -40,7 +40,7 @@ statsSession() {
 	fi
 
 	sessDir="$TTK_LOG_DIR/session_name/$1/window_name"
-	dirs=`find "$sessDir" -type d | grep "$sessDir/[^/]*$"`
+	dirs=`find "$sessDir" -type d | grep "^$sessDir/[^/]*$"`
 
 	for dir in ${dirs[*]}; do
 
@@ -66,7 +66,7 @@ statsSessionPaths() {
 	fi
 
 	sessDir="$TTK_LOG_DIR/session_name/$1/window_name"
-	dirs=`find "$sessDir" -type d | grep "$sessDir/[^/]*/current_path/[^/]*$"`
+	dirs=`find "$sessDir" -type d | grep "^$sessDir/[^/]*/current_path/[^/]*$"`
 
 	for dir in ${dirs[*]}; do
 
@@ -95,7 +95,7 @@ statsSessionCommands() {
 	fi
 
 	sessDir="$TTK_LOG_DIR/session_name/$1/window_name"
-	dirs=`find "$sessDir" -type d | grep "$sessDir/[^/]*/current_path/.*/current_command/[^/]*$"`
+	dirs=`find "$sessDir" -type d | grep ^"$sessDir/[^/]*/current_path/.*/current_command/[^/]*$"`
 
 	for dir in ${dirs[*]}; do
 
@@ -137,7 +137,7 @@ statsSessionWindowCommands() {
 	fi
 
 	sessDir="$TTK_LOG_DIR/session_name/$1/window_name/$2/current_path"
-	dirs=`find "$sessDir" -type d | grep "$sessDir/.*/current_command/[^/]*$"`
+	dirs=`find "$sessDir" -type d | grep "^$sessDir/.*/current_command/[^/]*$"`
 
 	for dir in ${dirs[*]}; do
 
@@ -160,7 +160,7 @@ statsSessionWindowCommands() {
 #Get commands with time spent across all sessions and windows
 statsCommands() {
 
-	dirs=`find "$TTK_LOG_DIR" -type d | grep "$TTK_LOG_DIR""session_name/[^/]*/window_name/[^/]*/current_path/.*/current_command/[^/]*$"`
+	dirs=`find "$TTK_LOG_DIR" -type d | grep "^$TTK_LOG_DIR""session_name/[^/]*/window_name/[^/]*/current_path/.*/current_command/[^/]*$"`
 
 	for dir in ${dirs[*]}; do
 

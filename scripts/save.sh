@@ -51,7 +51,5 @@ saveToFile() {
 	fi
 
 
-	alreadySpent=`cat "$logFile"`;
-	count=$((alreadySpent + $2))
 	echo "$count" > "$logFile";
 }

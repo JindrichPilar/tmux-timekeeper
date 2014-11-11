@@ -16,12 +16,11 @@ echo "record";
 
 
     activePaneStr=`getActivePane`
-    strC=`echo "$activePaneStr" | wc -l`
-    if [ $strC -eq 0 ]; then
-      return 2
+    strC=`echo "$activePaneStr" | wc -c`
+    if [ $strC -gt 1 ]; then
+       echo "$strC" >> "$HOME/llog"
+       saveLog "$activePaneStr" "$DELAY"
     fi
-
-    saveLog "$activePaneStr" "$DELAY"
 
   done
 }
