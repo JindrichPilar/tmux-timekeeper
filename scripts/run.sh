@@ -18,8 +18,7 @@ echo "record";
     activePaneStr=`getActivePane`
     strC=`echo "$activePaneStr" | wc -c`
     if [ $strC -gt 1 ]; then
-       echo "$strC" >> "$HOME/llog"
-       saveLog "$activePaneStr" "$DELAY"
+       saveLog "$activePaneStr" "$TTK_LOG_DELAY"
     fi
 
   done
