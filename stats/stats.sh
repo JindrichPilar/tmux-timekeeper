@@ -18,7 +18,7 @@ statsSessions() {
 
 	for i in ${dirs[*]}; do
 		#Additional 0 because of last \n
-		time=$(($(cat `find "$i" -name "*.log"` | tr -s '\n' '+')0))
+		time=$(($(cat `find "$i" -name "*.log" | grep "current_command/[^/]*/time_spent.log$"` | tr -s '\n' '+')0))
 
 		msg=`echo "$i" | rev | cut -d"/" -f1 | rev`
 
@@ -45,7 +45,7 @@ statsSession() {
 	for dir in ${dirs[*]}; do
 
 		#Additional 0 because of last \n
-		time=$(($(cat `find "$dir" -name "*.log"` | tr -s '\n' '+')0))
+		time=$(($(cat `find "$dir" -name "*.log" | grep "current_command/[^/]*/time_spent.log$"` | tr -s '\n' '+')0))
 
 		msg=`echo "$dir" | rev | cut -d"/" -f1 | rev`
 
@@ -71,7 +71,7 @@ statsSessionPaths() {
 	for dir in ${dirs[*]}; do
 
 		#Additional 0 because of last \n
-		time=$(($(cat `find "$dir" -name "*.log"` | tr -s '\n' '+')0))
+		time=$(($(cat `find "$dir" -name "*.log" | grep "current_command/[^/]*/time_spent.log$"` | tr -s '\n' '+')0))
 
 		#TODO entire paths
 		msg=`echo "$dir" | rev | cut -d"/" -f2 | rev`
@@ -100,7 +100,7 @@ statsSessionCommands() {
 	for dir in ${dirs[*]}; do
 
 		#Additional 0 because of last \n
-		time=$(($(cat `find "$dir" -name "*.log"` | tr -s '\n' '+')0))
+		time=$(($(cat `find "$dir" -name "*.log" | grep "current_command/[^/]*/time_spent.log$"` | tr -s '\n' '+')0))
 
 		msg=`echo "$dir" | rev | cut -d"/" -f1 | rev`
 
@@ -142,7 +142,7 @@ statsSessionWindowCommands() {
 	for dir in ${dirs[*]}; do
 
 		#Additional 0 because of last \n
-		time=$(($(cat `find "$dir" -name "*.log"` | tr -s '\n' '+')0))
+		time=$(($(cat `find "$dir" -name "*.log" | grep "current_command/[^/]*/time_spent.log$"` | tr -s '\n' '+')0))
 
 		msg=`echo "$dir" | rev | cut -d"/" -f1 | rev`
 
@@ -165,7 +165,7 @@ statsCommands() {
 	for dir in ${dirs[*]}; do
 
 		#Additional 0 because of last \n
-		time=$(($(cat `find "$dir" -name "*.log"` | tr -s '\n' '+')0))
+		time=$(($(cat `find "$dir" -name "*.log" | grep "current_command/[^/]*/time_spent.log$"` | tr -s '\n' '+')0))
 
 		msg=`echo "$dir" | rev | cut -d"/" -f1 | rev`
 
@@ -186,7 +186,7 @@ statsPaths() {
 	for dir in ${dirs[*]}; do
 
 		#Additional 0 because of last \n
-		time=$(($(cat `find "$dir" -name "*.log"` | tr -s '\n' '+')0))
+		time=$(($(cat `find "$dir" -name "*.log" | grep "current_command/[^/]*/time_spent.log$"` | tr -s '\n' '+')0))
 
 		#TODO print entire path
 		msg=`echo "$dir" | rev | cut -d"/" -f2 | rev`
