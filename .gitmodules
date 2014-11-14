@@ -1,0 +1,6 @@
+[submodule "assert.sh"]
+	path = tests/include/assert.sh
+	url = git@github.com:lehmannro/assert.sh.git
+[submodule "stub.sh"]
+	path = tests/include/stub.sh
+	url = git@github.com:jimeh/stub.sh.git

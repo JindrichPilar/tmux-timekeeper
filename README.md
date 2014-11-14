@@ -1,4 +1,4 @@
-# Tmux Timekeeper
+# Tmux Timekeeper [![Build Status](https://travis-ci.org/JindrichPilar/tmux-timekeeper.svg)](https://travis-ci.org/JindrichPilar/tmux-timekeeper)
 
 Tmux Timekeeper (TT) is automatic time tracking plugin for Terminal Multiplexer called [Tmux](http://tmux.sourceforge.net/).
 
