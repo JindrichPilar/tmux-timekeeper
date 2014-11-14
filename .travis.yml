@@ -2,3 +2,4 @@ language: bash
 script: bash tests/tests.sh
 before_install:
     - sudo apt-get install bc
+    - git submodule update --init --recursive
