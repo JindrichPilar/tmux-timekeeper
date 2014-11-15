@@ -13,10 +13,17 @@ TT keeps an eye on what pane you are using and records time you spent in each se
 ### With Tmux Plugin Manager (TPM)
 Simply follow guide in [TPM readme](https://github.com/tmux-plugins/tpm#installing-plugins)
 
+
+### With Makefile
+* Use git to clone this repository to your machine
+* Use `cd` to cloned repository
+* Run `make install`
+* Reload tmux configuration
+
 ### By hand
-* Use git to clone this repository to `~/.timekeeper`.
+* Use git to clone this repository to `path/to/cloned/TimeKeeperPlugin`
 * Set configuration variables in ~/.tmux.conf (see **Configuration**)
-* Edit `~/.tmux.conf` by adding following line at the end of file.
+* Edit `~/.tmux.conf` by adding following line at the end of file
 * Reload tmux configuration
 ```
 source "path/to/cloned/TimeKeeperPlugin/timekeeper.tmux"
