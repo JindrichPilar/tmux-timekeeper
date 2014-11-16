@@ -1,7 +1,11 @@
 #Changelog
 **Dates are in format day.month.year**
 
+<<<<<<< Updated upstream
 ##0.0.2 (DEV)
+=======
+##0.0.2 (x.11.2014)
+>>>>>>> Stashed changes
 Makefile installation and internal changes.
 * Tests added
 * Travis.CI added

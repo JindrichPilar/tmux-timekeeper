@@ -3,7 +3,7 @@
 
 # You can always run tests from timekeeper root directory by "./tests/tests.sh" command
 tests: tests/tests.sh nothing
-	./tests/tests.sh;
+	bash ./tests/tests.sh;
 
 # Is there so tests are allways rebuildable
 nothing:

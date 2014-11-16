@@ -10,5 +10,8 @@ for f in $files; do
 	source "$f";
 done
 
+source stats/stats.sh
 
-assert_end examples
+source tests/parserTests.sh
+source tests/runTests.sh
+source tests/fileLogTests.sh

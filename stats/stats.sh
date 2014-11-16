@@ -12,7 +12,6 @@ statsSessions() {
 
 	IFS='
 	'
-
 	#$TTK_LOG_DIR ends with / (TODO delete when loading config)
 	dirs=`find "$TTK_LOG_DIR" -type d | grep "^$TTK_LOG_DIR""session_name/[^/]*$"`
 
@@ -23,7 +22,7 @@ statsSessions() {
 		msg=`echo "$i" | rev | cut -d"/" -f1 | rev`
 
 		#TODO add option to print in seconds (for additinal scripts)
-		msg="$msg :"`displaytime $time`
+		msg="$msg:"`displaytime $time`
 		echo $msg
 	done
 }

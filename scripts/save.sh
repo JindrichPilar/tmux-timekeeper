@@ -15,6 +15,8 @@
 #time_spent.log (file per kind with)
 
 
+
+#FIXME How to handle current path? We need to preserver complete path including "/home/" which results in "current_path//home". Use path as single directory -> \\? -BACKWARDS incompatible change
 #$1 = data
 getSaveCommandPath() {
 	echo "$TTK_LOG_DIR/session_name/`getSessionName "$1"`/window_name/`getWindowName "$1"`/current_path/`getCurrentPath "$1"`/current_command/`getCurrentCommand "$1"`/";
@@ -25,6 +27,8 @@ getSavePaneTitlePath() {
 	echo "$TTK_LOG_DIR/session_name/`getSessionName "$1"`/window_name/`getWindowName "$1"`/current_path/`getCurrentPath "$1"`/pane_title/`getPaneTitle "$1"`/";
 }
 
+#Only one loop, save delay is counted from time to add. Which in turn is TTK_LOG_DELAY
+#TODO what if TTK_LOG_DELAY is changed during run?
 TTK_DELAYED_SAVE_ELAPSED=0;
 TTK_DELAYED_SAVE_DATA="";
 
