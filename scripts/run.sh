@@ -10,8 +10,9 @@ echo "record";
     sleep "$TTK_LOG_DELAY";
 
     isEndOfRecording
-    if [ $? -eq 0 ];
-      then break;
+    if [ $? -eq 0 ]; then
+	doSaveLog;
+	break;
     fi
 
 
