@@ -24,13 +24,15 @@ saveToFile "$TTK_LOG_DIR" "55"
 assert "cat \"$TTK_LOG_DIR/time_spent.log\"" "55"
 
 #Test delayed write
-saveLog "$A" 5
-assert_raises "test -e \"$A_save_command_path/time_spent.log\"" 1
+file_doSaveLog "$A" 5
+assert_raises "test -e \"$A_save_command_path/time_spent.log\"" 0
+assert "cat \"$A_save_command_path/time_spent.log\"" "5"
 
-saveLog "$A" 5
-assert_raises "test -e \"$A_save_command_path/time_spent.log\"" 1
+file_doSaveLog "$A" 5
+assert_raises "test -e \"$A_save_command_path/time_spent.log\"" 0
+assert "cat \"$A_save_command_path/time_spent.log\"" "10"
 
-saveLog "$A" 5
+file_doSaveLog "$A" 5
 assert_raises "test -e \"$A_save_command_path/time_spent.log\"" 0
 assert "cat \"$A_save_command_path/time_spent.log\"" "15"
 

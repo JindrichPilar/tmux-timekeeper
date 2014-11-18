@@ -11,7 +11,7 @@ echo "record";
 
     isEndOfRecording
     if [ $? -eq 0 ]; then
-	doSaveLog;
+	forceSaveLog;
 	break;
     fi
 

@@ -14,4 +14,5 @@ source stats/stats.sh
 
 source tests/parserTests.sh
 source tests/runTests.sh
+source tests/saveTests.sh
 source tests/fileLogTests.sh
