@@ -24,6 +24,19 @@ TTK_PLUGIN_DIR=`getOption TTK_PLUGIN_DIR "$HOME/.timekeeper"`;
 TTK_LOG_DIR=`getOption TTK_LOG_DIR "$HOME/TTK/"`;
 TTK_DO_SAVE_FUNC_PREFIX="`getOption TTK_DO_SAVE_FUNC_PREFIX "file_"`";
 
+
+#Stats functions
+TTK_statsCommands=`getOption file_statsSessions "file_"`
+TTK_statsPaths=`getOption file_statsSessions "file_"`
+TTK_statsSession=`getOption file_statsSessions "file_"`
+TTK_statsSessionCommands=`getOption file_statsSessions "file_"`
+TTK_statsSessionPaths=`getOption file_statsSessions "file_"`
+TTK_statsSessionWindow=`getOption file_statsSessions "file_"`
+TTK_statsSessionWindowCommands=`getOption file_statsSessions "file_"`
+TTK_statsSessions=`getOption file_statsSessions "file_"`
+
+
+
 if [ "$TTK_WRITE_DELAY" -lt "$TTK_LOG_DELAY" ]; then
 	echo "Write delay cannot be shorter than Log delay";
 	return 1;
