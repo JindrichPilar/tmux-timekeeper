@@ -5,12 +5,16 @@ source "tests/include/assert.sh/assert.sh"
 source "tests/include/stub.sh/stub.sh"
 
 # Source all scripts
-files=`find "scripts/" -iname "*.sh"`
+files=`find "base_scripts/" -iname "*.sh"`
 for f in $files; do
 	source "$f";
 done
 
-source stats/stats.sh
+
+files=`find "storage/" -iname "*.sh"`
+for f in $files; do
+	source "$f";
+done
 
 source tests/parserTests.sh
 source tests/runTests.sh

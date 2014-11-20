@@ -3,28 +3,32 @@
 
 #Get sessions with time spent
 statsSessions() {
-	$TTK_statsSessions;
+	cmd="$TTK_STORAGE_PREFIX"statsSessions;
+	$cmd;
 }
 
 
 #Get windows in session with time spent
 #1 = session_name
 statsSession() {
-	$TTK_statsSession "$1";
+	cmd="$TTK_STORAGE_PREFIX"statsSession;
+	$cmd "$1";
 }
 
 
 #Get paths in session with time spent
 #1 = session_name
 statsSessionPaths() {
-	$TTK_statsSessionPaths "$1";
+	cmd="$TTK_STORAGE_PREFIX"statsSessionPaths;
+        $cmd "$1";
 }
 
 
 #Get commands in session with time spent
 #1 = session_name
 statsSessionCommands() {
-	$TTK_statsSessionCommands "$1";
+	cmd="$TTK_STORAGE_PREFIX"statsSessionCommands; 
+	$cmd "$1";
 }
 
 
@@ -32,7 +36,8 @@ statsSessionCommands() {
 #1 = session_name
 #2 = window_name
 statsSessionWindow() {
-	$TTK_statsSessionWindow "$1" "$2";
+	cmd="$TTK_STORAGE_PREFIX"statsSessionWindow;
+	$cmd "$1" "$2";
 }
 
 
@@ -40,30 +45,20 @@ statsSessionWindow() {
 #1 = session_name
 #2 = window_name
 statsSessionWindowCommands() {
-	$TTK_statsSessionWindowCommands "$1" "$2";
+	cmd="$TTK_STORAGE_PREFIX"statsSessionWindowCommands;
+	$cmd "$1" "$2";
 }
 
 
 #Get commands with time spent across all sessions and windows
 statsCommands() {
-	$TTK_statsCommands;
+	cmd="$TTK_STORAGE_PREFIX"statsCommands;
+	$cmd;
 }
 
 
 #Get paths with time spent accros all sessions and window
 statsPaths() {
-	$TTK_statsPaths;
+	cmd="$TTK_STORAGE_PREFIX"statsPaths;
+	$cmd;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -22,18 +22,8 @@ TTK_LOG_DELAY=`getOption TTK_LOG_DELAY 2`
 TTK_WRITE_DELAY=`getOption TTK_WRITE_DELAY 10`;
 TTK_PLUGIN_DIR=`getOption TTK_PLUGIN_DIR "$HOME/.timekeeper"`;
 TTK_LOG_DIR=`getOption TTK_LOG_DIR "$HOME/TTK/"`;
-TTK_DO_SAVE_FUNC_PREFIX="`getOption TTK_DO_SAVE_FUNC_PREFIX "file_"`";
+TTK_STORAGE_PREFIX="`getOption TTK_STORAGE_PREFIX "file_"`";
 
-
-#Stats functions
-TTK_statsCommands=`getOption file_statsSessions "file_"`
-TTK_statsPaths=`getOption file_statsSessions "file_"`
-TTK_statsSession=`getOption file_statsSessions "file_"`
-TTK_statsSessionCommands=`getOption file_statsSessions "file_"`
-TTK_statsSessionPaths=`getOption file_statsSessions "file_"`
-TTK_statsSessionWindow=`getOption file_statsSessions "file_"`
-TTK_statsSessionWindowCommands=`getOption file_statsSessions "file_"`
-TTK_statsSessions=`getOption file_statsSessions "file_"`
 
 
 
@@ -53,8 +43,14 @@ if [ ! -w "$TTK_LOG_DIR" ]; then
 fi
 #TODO how to tell it to user if this calls plugin manager?
 
-source "$TTK_PLUGIN_DIR/scripts/parser.sh";
-source "$TTK_PLUGIN_DIR/scripts/save.sh";
-source "$TTK_PLUGIN_DIR/scripts/file_save.sh";
-source "$TTK_PLUGIN_DIR/scripts/run.sh";
-source "$TTK_PLUGIN_DIR/stats/stats.sh";
+# Source all scripts
+files=`find "base_scripts/" -iname "*.sh"`
+for f in $files; do
+	source "$f";
+done
+
+#TODO load only needed files based on FUNC_PREFIX
+files=`find "storage/" -iname "*.sh"`
+for f in $files; do
+	source "$f";
+done

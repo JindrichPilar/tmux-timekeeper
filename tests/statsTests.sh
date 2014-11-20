@@ -1,17 +1,8 @@
-TTK_statsCommands="my_statsCommands";
-TTK_statsPaths="my_statsPaths";
-TTK_statsSession="my_statsSession";
-TTK_statsSessionCommands="my_statsSessionCommands";
-TTK_statsSessionPaths="my_statsSessionPaths";
-TTK_statsSessionWindow="my_statsSessionWindow";
-TTK_statsSessionWindowCommands="my_statsSessionWindowCommands";
-TTK_statsSessions="my_statsSessions";
-
-
-
 sess_name="my_super_session_name";
 wind_name="my_even_better_window_name";
 
+
+TTK_STORAGE_PREFIX="my"_
 
 stub "my_statsCommands";
 stub "my_statsSessionPaths";
@@ -54,8 +45,6 @@ assert_raises "stub_called_with_exactly_times my_statsCommands 1";
 
 statsPaths;
 assert_raises "stub_called_with_exactly_times my_statsPaths 1";
-
-
 
 
 assert_end "Stats tests"

@@ -7,8 +7,8 @@ backupDELAY="$TTK_WRITE_DELAY"
 TTK_WRITE_DELAY=4
 
 
-backupFUNC_PREFIX="$TTK_DO_SAVE_FUNC_PREFIX"
-TTK_DO_SAVE_FUNC_PREFIX="test_"
+backupFUNC_PREFIX="$TTK_STORAGE_PREFIX"
+TTK_STORAGE_PREFIX="test_"
 test_fname="test_doSaveLog"
 stub "$test_fname"
 
@@ -44,5 +44,5 @@ assert_raises "stub_called_exactly_times $test_fname 2" 0
 
 assert_end "Save tests"
 restore "forceSaveLog";
-TTK_DO_SAVE_FUNC_PREFIX="$backupFUNC_PREFIX"
+TTK_STORAGE_PREFIX="$backupFUNC_PREFIX"
 TTK_WRITE_DELAY="$backupDELAY";
