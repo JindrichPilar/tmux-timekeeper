@@ -8,7 +8,7 @@ TTK_WRITE_DELAY=4
 
 
 backupFUNC_PREFIX="$TTK_STORAGE_PREFIX"
-TTK_STORAGE_PREFIX="test_"
+TTK_STORAGE_PREFIX="test"
 test_fname="test_doSaveLog"
 stub "$test_fname"
 
