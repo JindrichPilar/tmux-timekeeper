@@ -22,7 +22,7 @@ TTK_LOG_DELAY=`getOption TTK_LOG_DELAY 2`
 TTK_WRITE_DELAY=`getOption TTK_WRITE_DELAY 10`;
 TTK_PLUGIN_DIR=`getOption TTK_PLUGIN_DIR "$HOME/.timekeeper"`;
 TTK_LOG_DIR=`getOption TTK_LOG_DIR "$HOME/TTK/"`;
-TTK_STORAGE_PREFIX="`getOption TTK_STORAGE_PREFIX "file_"`";
+TTK_STORAGE_PREFIX="`getOption TTK_STORAGE_PREFIX "file"`";
 
 
 
@@ -49,8 +49,12 @@ for f in $files; do
 	source "$f";
 done
 
-#TODO load only needed files based on FUNC_PREFIX
-files=`find "storage/" -iname "*.sh"`
+
+if [ ! -d "storage/$TTK_STORAGE_PREFIX" ]; then
+	echo "Incorrect storage prefix";
+	return 1;
+fi
+files=`find "storage/$TTK_STORAGE_PREFIX/" -iname "*.sh"`
 for f in $files; do
 	source "$f";
 done

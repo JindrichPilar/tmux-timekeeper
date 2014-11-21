@@ -22,7 +22,7 @@ saveLog() {
 }
 
 forceSaveLog() {
-	fname="$TTK_STORAGE_PREFIX"doSaveLog
+	fname="$TTK_STORAGE_PREFIX"_doSaveLog
  	$fname "${TTK_DELAYED_SAVE_DATA[@]}" "$TTK_TIME_TO_SAVE";
 
 

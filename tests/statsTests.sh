@@ -2,7 +2,7 @@ sess_name="my_super_session_name";
 wind_name="my_even_better_window_name";
 
 
-TTK_STORAGE_PREFIX="my"_
+TTK_STORAGE_PREFIX="my"
 
 stub "my_statsCommands";
 stub "my_statsSessionPaths";
