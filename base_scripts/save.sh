@@ -13,8 +13,8 @@ saveLog() {
 
 	TTK_TIME_TO_SAVE=$2;
 	TTK_DELAYED_SAVE_DATA[${#TTK_DELAYED_SAVE_DATA[@]}]="$1"
-	TTK_DELAYED_SAVE_ELAPSED=$(($TTK_DELAYED_SAVE_ELAPSED+$2))
-	if [ $TTK_DELAYED_SAVE_ELAPSED -lt $TTK_WRITE_DELAY ]; then
+	TTK_DELAYED_SAVE_ELAPSED=$((TTK_DELAYED_SAVE_ELAPSED+$2))
+	if [ "$TTK_DELAYED_SAVE_ELAPSED" -lt "$TTK_WRITE_DELAY" ]; then
 		return 0;
 	fi
 
@@ -23,7 +23,7 @@ saveLog() {
 
 forceSaveLog() {
 	fname="$TTK_STORAGE_PREFIX"_doSaveLog
- 	$fname "${TTK_DELAYED_SAVE_DATA[@]}" "$TTK_TIME_TO_SAVE";
+	$fname "${TTK_DELAYED_SAVE_DATA[@]}" "$TTK_TIME_TO_SAVE";
 
 
 	#Empty temp data

@@ -5,7 +5,7 @@ source "tests/include/assert.sh/assert.sh"
 source "tests/include/stub.sh/stub.sh"
 
 # Source all scripts
-files=`find "base_scripts/" -iname "*.sh"`
+files=$(find "base_scripts/" -iname "*.sh")
 for f in $files; do
 	source "$f";
 done

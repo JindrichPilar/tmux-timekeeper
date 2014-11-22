@@ -19,12 +19,12 @@
 #FIXME How to handle current path? We need to preserver complete path including "/home/" which results in "current_path//home". Use path as single directory -> \\? -BACKWARDS incompatible change
 #$1 = data
 getSaveCommandPath() {
-	echo "$TTK_LOG_DIR/session_name/`getSessionName "$1"`/window_name/`getWindowName "$1"`/current_path/`getCurrentPath "$1"`/current_command/`getCurrentCommand "$1"`/";
+	echo "$TTK_LOG_DIR/session_name/$(getSessionName "$1")/window_name/$(getWindowName "$1")/current_path/$(getCurrentPath "$1")/current_command/$(getCurrentCommand "$1")/";
 }
 
 #1 = data
 getSavePaneTitlePath() {
-	echo "$TTK_LOG_DIR/session_name/`getSessionName "$1"`/window_name/`getWindowName "$1"`/current_path/`getCurrentPath "$1"`/pane_title/`getPaneTitle "$1"`/";
+	echo "$TTK_LOG_DIR/session_name/$(getSessionName "$1")/window_name/$(getWindowName "$1")/current_path/$(getCurrentPath "$1"$)/pane_title/$(getPaneTitle "$1")/";
 }
 
 #$1..$n-1 Array of data
@@ -38,12 +38,12 @@ file_doSaveLog() {
 
 
 	for d in "${data[@]}"; do
-		cmdPath=`getSaveCommandPath "$d"`
+		cmdPath=$(getSaveCommandPath "$d")
 		mkdir -p "$cmdPath"
 		saveToFile "$cmdPath" "$timeToSave"
 
 
-		titlePath=`getSavePaneTitlePath "$d"`
+		titlePath=$(getSavePaneTitlePath "$d")
 		mkdir -p "$titlePath"
 		saveToFile "$titlePath" "$timeToSave"
 	done
@@ -60,7 +60,7 @@ saveToFile() {
 		return 0;
 	fi
 
-	alreadySpent=`cat "$logFile"`;
+	alreadySpent=$(cat "$logFile");
 	count=$((alreadySpent + $2))
 	echo "$count" > "$logFile";
 }

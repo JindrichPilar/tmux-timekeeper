@@ -9,6 +9,9 @@ tests: tests/tests.sh nothing
 nothing:
 	clear;
 
+static_analysis:
+	shellcheck --shell=bash `find . -iname "*.sh" | grep -iv "tests/include/" | grep -iv "\.git"`
+
 # Installs with correct paths
 install:
 	echo "set-environment -g \"TTK_PLUGIN_DIR\"  \"`pwd`\"" >> ${HOME}/.tmux.conf;

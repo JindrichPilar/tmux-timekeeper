@@ -16,9 +16,9 @@ echo "record";
     fi
 
 
-    activePaneStr=`getActivePane`
-    strC=`echo "$activePaneStr" | wc -c`
-    if [ $strC -gt 1 ]; then
+    activePaneStr="$(getActivePane)"
+    strC=${#activePaneStr}
+    if [ "$strC" -gt 1 ]; then
        saveLog "$activePaneStr" "$TTK_LOG_DELAY"
     fi
 
@@ -27,12 +27,12 @@ echo "record";
 
 
 isEndOfRecording() {
-  END_FLAG=`tmux show-environment "end_rec" | grep '=true' | wc -l`
+	END_FLAG=$(tmux show-environment "end_rec" | grep -c '=true')
 
-  if [ $END_FLAG -eq 1 ];
-    then return 0;
-    else return 1;
-  fi
+	if [ "$END_FLAG" -eq 1 ];
+	then return 0;
+	else return 1;
+	fi
 }
 
 

@@ -17,22 +17,22 @@ getActivePane() {
 }
 
 getSessionName() {
- echo $1 | cut -d: -f1;
+ echo "$1" | cut -d: -f1;
 }
 
 
 getWindowName() {
- echo $1 | cut -d: -f3;
+ echo "$1" | cut -d: -f3;
 }
 
 getPaneTitle() {
- echo $1 | cut -d: -f4;
+ echo "$1" | cut -d: -f4;
 }
 
 getCurrentCommand() {
- echo $1 | cut -d: -f5;
+ echo "$1" | cut -d: -f5;
 }
 
 getCurrentPath() {
- echo $1 | cut -d: -f6;
+ echo "$1" | cut -d: -f6;
 }
