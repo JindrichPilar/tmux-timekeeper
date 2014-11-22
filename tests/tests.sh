@@ -11,7 +11,7 @@ for f in $files; do
 done
 
 
-files=`find "storage/" -iname "*.sh"`
+files=$(find "storage/" -iname "*.sh")
 for f in $files; do
 	source "$f";
 done

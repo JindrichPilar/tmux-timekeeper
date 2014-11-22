@@ -1,8 +1,6 @@
 language: bash
 script: bash tests/tests.sh
-after_script:
-        - make static_analysis
 before_install:
     - sudo apt-get update -qq
-    - sudo apt-get install bc shellcheck
+    - sudo apt-get install bc
     - git submodule update --init --recursive
