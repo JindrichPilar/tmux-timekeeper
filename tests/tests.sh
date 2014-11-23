@@ -16,6 +16,7 @@ for f in $files; do
 	source "$f";
 done
 
+source tests/settingsTests.sh
 source tests/parserTests.sh
 source tests/runTests.sh
 source tests/saveTests.sh
