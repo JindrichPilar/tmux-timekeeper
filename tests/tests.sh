@@ -20,5 +20,7 @@ source tests/settingsTests.sh
 source tests/parserTests.sh
 source tests/runTests.sh
 source tests/saveTests.sh
-source tests/fileLogTests.sh
 source tests/statsTests.sh
+source tests/fileLogTests.sh
+source tests/sqliteLogTests.sh
+
